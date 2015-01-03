@@ -118,11 +118,27 @@ angular.module('radar')
     }
   }
 
+  //         strokeColor: 'green',
+  //         strokeOpacity: 0.8,
+  //         strokeWeight: 2,
+  //         fillColor: 'green',
+  //         fillOpacity: 0.35,
+
   Http.getMarkers(function(events) {
     events.forEach(function(event) {
       event.latitude = event.lat;
       event.longitude = event.lng;
       event.idKey = event.id;
+      event.stroke = {
+        color: 'green',
+        weight: 2,
+        opacity: 1
+      }
+      event.fill = {
+        color: 'green',
+        opacity: 0.35
+      }
+      event.radius = Math.random()*650;
       $scope.markers.push(event);
     });
   });
