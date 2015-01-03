@@ -11,7 +11,7 @@ angular.module('radar')
   // var map = Map.initialize();
   // var myMarker = Map.geoLocate();
 
-  $scope.map = { center: { latitude: 37, longitude: 56 }, zoom: 8, refresh: false, options: {} };
+  $scope.map = { center: { latitude: 37.7833, longitude: -122.4167 }, zoom: 10, options: {} };
   $scope.map.options.styles = [
         {
             "featureType": "landscape.man_made",
@@ -107,23 +107,18 @@ angular.module('radar')
   $scope.markers = [];
 
   $scope.geoLocate = function() {
-    console.log("locating....")
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(pos) {
         $scope.map.center.latitude = pos.coords.latitude;
         $scope.map.center.longitude = pos.coords.longitude;
         $scope.map.zoom = 14
         $scope.$apply();
+        console.log("Located at: ", pos.coords.latitude, pos.coords.longitude )
       })
     }
   }
 
-  //         strokeColor: 'green',
-  //         strokeOpacity: 0.8,
-  //         strokeWeight: 2,
-  //         fillColor: 'green',
-  //         fillOpacity: 0.35,
-
+//Gets events, adds necessary data for markers
   Http.getMarkers(function(events) {
     events.forEach(function(event) {
       event.latitude = event.lat;

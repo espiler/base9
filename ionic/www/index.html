@@ -40,25 +40,33 @@
                 </ion-nav-bar>
                 <ion-content ng-controller="MapController" class="mapCanvas has-header" scroll="false">
                     <!-- <map on-create="mapCreated(map)"></map> -->
-                    <ui-gmap-google-map center='map.center' zoom='map.zoom' refresh='map.refresh' options='map.options' control='{}' pan='true'>
-                   <!--  <ui-gmap-markers
-                      models='markers'
-                      labelContent='{expression}'
-                      coords="'self'"
-                      icon="'icon'"
-                     >
-                       </ui-gmap-markers> -->
-                      <ui-gmap-circle ng-repeat="marker in markers track by marker.id" 
-                      center="marker" 
-                      stroke="marker.stroke" 
-                      fill="marker.fill" 
-                      radius="marker.radius" 
-                      visible="true" 
-                      geodesic="false" 
-                      editable="false" 
-                      draggable="false" 
-                      clickable="true">
-                      </ui-gmap-circle>
+                    <ui-gmap-google-map 
+                      center='map.center' 
+                      zoom='map.zoom' 
+                      options='map.options' 
+                      control='{}' 
+                      pan='true'>
+
+                      <ui-gmap-markers
+                        models='markers'
+                        labelContent="CONTENT HERE!"
+                        coords="'self'"
+                        icon="'icon'">
+                        <ui-gmap-windows show="true">
+                           <div ng-non-bindable>{{title}}</div>
+                        </ui-gmap-windows>
+                      </ui-gmap-markers>
+                      <!-- <ui-gmap-circle ng-repeat="marker in markers track by marker.id" 
+                        center="marker" 
+                        stroke="marker.stroke" 
+                        fill="marker.fill" 
+                        radius="marker.radius" 
+                        visible="true" 
+                        geodesic="false" 
+                        editable="false" 
+                        draggable="false" 
+                        clickable="true">
+                      </ui-gmap-circle> -->
                     </ui-gmap-google-map>
                     <button id="GeoButton" ng-click="geoLocate()"><i class="icon ion-android-locate"></i></button>
                 </ion-content>
