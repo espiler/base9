@@ -1,4 +1,6 @@
 angular.module('radar', [
+  // 'radar.directives',
+  'uiGmapgoogle-maps',
 	'ionic',
 	'ui.bootstrap'
 	])
@@ -13,4 +15,12 @@ angular.module('radar', [
       StatusBar.styleDefault();
     }
   })
+})
+
+.config(function(uiGmapGoogleMapApiProvider) {
+    uiGmapGoogleMapApiProvider.configure({
+      key: 'AIzaSyBnemtHaxtZyoxOU0NYEPXNxJwIhG0DeCE',
+      v: '3.17',
+      libraries: 'weather,geometry,visualization'
+    });
 })

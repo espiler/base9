@@ -13,7 +13,7 @@ angular.module('radar')
 // This is an ugly hack -- Figure out real angular/ionic ready function
 	$timeout(function() {
 		$ionicNavBarDelegate.handle = 'navBar';
-		$ionicNavBarDelegate.title('Playdar!');
+		$ionicNavBarDelegate.title('Ephemeral');
 	}, 150);
 
 	// $scope.test = function() {
