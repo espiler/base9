@@ -51,21 +51,35 @@
                         models='markers'
                         labelContent="CONTENT HERE!"
                         coords="'self'"
-                        icon="'icon'">
-                        <ui-gmap-windows show="true">
-                           <div ng-non-bindable>{{title}}</div>
+                        icon="'icon'"
+                        >
+                        <ui-gmap-windows show="true" options="windowOptions">
+                           <div class="infoWindow" ng-non-bindable>
+                            <h4>{{title}}</h4>
+                            <h6>{{rating[0].comment}}</h6>
+                           </div>
                         </ui-gmap-windows>
                       </ui-gmap-markers>
+
                       <!-- <ui-gmap-circle ng-repeat="marker in markers track by marker.id" 
                         center="marker" 
                         stroke="marker.stroke" 
                         fill="marker.fill" 
                         radius="marker.radius" 
                         visible="true" 
-                        geodesic="false" 
+                        geodesic="true" 
                         editable="false" 
                         draggable="false" 
-                        clickable="true">
+                        clickable="true"
+                        events="marker.events"
+                        >
+
+                        <ui-gmap-window model='marker' show="true" options="marker.windowOptions">
+                           <div class="infoWindow" ng-non-bindable>
+                            <h4>{{title}}</h4>
+                            <h6>{{rating[0].comment}}</h6>
+                           </div>
+                        </ui-gmap-window>
                       </ui-gmap-circle> -->
                     </ui-gmap-google-map>
                     <button id="GeoButton" ng-click="geoLocate()"><i class="icon ion-android-locate"></i></button>

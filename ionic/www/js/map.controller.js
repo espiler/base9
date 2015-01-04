@@ -10,8 +10,8 @@ angular.module('radar')
   
   // var map = Map.initialize();
   // var myMarker = Map.geoLocate();
-
-  $scope.map = { center: { latitude: 37.7833, longitude: -122.4167 }, zoom: 10, options: {} };
+  $scope.test = function() { console.log("HELLO!!") }
+  $scope.map = { center: { latitude: 37.7833, longitude: -122.4167 }, zoom: 14, options: {} };
   $scope.map.options.styles = [
         {
             "featureType": "landscape.man_made",
@@ -124,6 +124,9 @@ angular.module('radar')
       event.latitude = event.lat;
       event.longitude = event.lng;
       event.idKey = event.id;
+      event.clickable = true;
+      event.events = [];
+      event.events.push({})
       event.stroke = {
         color: 'green',
         weight: 2,
@@ -136,6 +139,7 @@ angular.module('radar')
       event.radius = Math.random()*650;
       $scope.markers.push(event);
     });
+    console.log($scope.markers[0])
   });
 
   uiGmapGoogleMapApi.then(function(maps) {
