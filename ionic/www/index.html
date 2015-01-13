@@ -12,9 +12,6 @@
     <link href='http://fonts.googleapis.com/css?family=Muli:300,400' rel='stylesheet' type='text/css'>
 
 
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-    <link href="css/ionic.app.css" rel="stylesheet">
-    -->
   </head>
   <body ng-app="radar">
     
@@ -24,6 +21,31 @@
     <!-- Google Maps API -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnemtHaxtZyoxOU0NYEPXNxJwIhG0DeCE&sensor=true&v=3.exp&libraries=places"></script>
 
+    <!-- <ion-pane> -->
+    <ion-side-menus>
+      <ion-side-menu-content ng-controller="MenuController">
+        <ion-nav-bar class="bar-positive">
+          <ion-nav-buttons side="right">
+            <button class="button" ng-click="toggleRight()">
+              Menu
+            </button>
+          </ion-nav-buttons>
+        </ion-nav-bar>
+        <ion-content ng-controller="MapController as MapCtrl">
+          <input type="text" id="pac-input" class="controls"/>  
+          <div id="map" data-tap-disabled="true">
+          </div>
+        </ion-content>
+      </ion-side-menu-content>
+
+        <ion-side-menu class="rightMenu" side="right">
+
+        </ion-side-menu>
+      
+      <!-- </ion-content> -->
+    </ion-side-menus>
+    <!-- </ion-pane> -->
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBnemtHaxtZyoxOU0NYEPXNxJwIhG0DeCE&sensor=true&v=3.exp&libraries=places"></script>
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>

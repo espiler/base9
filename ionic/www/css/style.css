@@ -66,9 +66,14 @@
 
 /* FONTS */
 
-@font-face {
-  font-family: 'skinny';
-  src: url('../fonts/skinny.ttc');
+#type-selector label {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300; 
 }
 
+/* MENUS */
 
+.rightMenu {
+  background-color: black;
+}

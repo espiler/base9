@@ -15,3 +15,6 @@ bin/*
 lib/*
 
 api_keys.js
+
+lib
+
